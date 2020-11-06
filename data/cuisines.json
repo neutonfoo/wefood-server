@@ -1,0 +1,6 @@
+[
+    {"cuisine": "Chinese Food", "cuisineQuery": "chinese food"},
+    {"cuisine": "Japanese Food", "cuisineQuery": "japanese food"}, 
+    {"cuisine": "Korean Food", "cuisineQuery": "korean food"},
+    {"cuisine": "Burgers", "cuisineQuery": "burgers"}
+]
