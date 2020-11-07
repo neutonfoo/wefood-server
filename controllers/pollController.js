@@ -25,6 +25,6 @@ exports.vote_poll = function (req, res) {
   res.json(PollManager.votePoll(poll_id, business_id));
 };
 
-exports.poll_list = function (req, res) {
-  res.json(PollManager.getAll());
+exports.get_polls = function (req, res) {
+  res.json(PollManager.getPolls());
 };

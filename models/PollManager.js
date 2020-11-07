@@ -31,11 +31,11 @@ class PollManager {
   }
 
   getPoll(poll_id) {
-    if (!(poll_id in this.polls)) {
-      return { error: "Does not exist" };
+    if (poll_id in this.polls) {
+      return this.polls[poll_id];
     }
 
-    return this.polls[poll_id];
+    return { error: "Poll does not exist." };
   }
 
   votePoll(poll_id, business_id) {
@@ -43,8 +43,8 @@ class PollManager {
     return { success: "Voted" };
   }
 
-  getAll() {
-    return this.polls;
+  getPolls() {
+    return Object.entries(this.polls);
   }
 }
 

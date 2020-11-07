@@ -3,6 +3,7 @@ const { getBusinesses } = require("../util/yelpUtil");
 module.exports = class Poll {
   constructor(poll_id, term, location, numberOfResults) {
     this.poll_id = poll_id;
+    this.date = new Date().toLocaleDateString();
     this.term = term;
     this.location = location;
     this.numberOfResults = numberOfResults;

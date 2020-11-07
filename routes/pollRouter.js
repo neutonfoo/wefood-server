@@ -7,7 +7,7 @@ const poll_controller = require("../controllers/pollController");
 // # Poll Routes (/api/poll)
 
 // Get All Polls
-router.get("/", poll_controller.poll_list);
+router.get("/", poll_controller.get_polls);
 
 // Get a Poll by Poll ID
 router.get("/:poll_id", poll_controller.get_poll);
