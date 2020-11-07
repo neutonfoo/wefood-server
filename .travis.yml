@@ -5,6 +5,5 @@ install: yarn
 cache:
   directories:
     - node_modules
-script: yarn test
 on:
   branch: master
