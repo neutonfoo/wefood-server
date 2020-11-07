@@ -27,7 +27,8 @@ class PollManager {
     cuisine,
     cuisine_query,
     price_range_index,
-    number_of_results
+    number_of_results,
+    is_using_current_location
   ) {
     const poll_id = this.generatePollId(1000, 9999);
 
@@ -38,7 +39,8 @@ class PollManager {
       cuisine,
       cuisine_query,
       price_range_index,
-      number_of_results
+      number_of_results,
+      is_using_current_location
     );
     await this.polls[poll_id].populateBusinesses();
 

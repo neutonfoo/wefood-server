@@ -11,6 +11,8 @@ const instance = axios.create({
 });
 
 module.exports.getBusinesses = async (term, location, price_range) => {
+  // is_using_current_location automatically handled by Yelp API
+
   return await instance.get("/businesses/search", {
     params: {
       term: term,
@@ -18,4 +20,8 @@ module.exports.getBusinesses = async (term, location, price_range) => {
       price: price_range,
     },
   });
+};
+
+module.exports.getBusinessReviews = async business_id => {
+  return await instance.get(`/businesses/${business_id}/reviews`);
 };

@@ -7,6 +7,7 @@ exports.create_poll = async function (req, res) {
   const cuisine_query = req.body.cuisine_query;
   const price_range_index = req.body.price_range_index + 1;
   const number_of_results = req.body.number_of_results;
+  const is_using_current_location = req.body.is_using_current_location;
 
   // Generate Poll and Poll ID
   const poll_id = await PollManager.createNewPoll(
@@ -15,7 +16,8 @@ exports.create_poll = async function (req, res) {
     cuisine,
     cuisine_query,
     price_range_index,
-    number_of_results
+    number_of_results,
+    is_using_current_location
   );
   res.json({ poll_id: poll_id });
 };

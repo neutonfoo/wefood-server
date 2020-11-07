@@ -8,7 +8,8 @@ module.exports = class Poll {
     cuisine,
     cuisine_query,
     price_range_index,
-    number_of_results
+    number_of_results,
+    is_using_current_location
   ) {
     this.poll_id = poll_id;
     this.date = new Date().toLocaleString();
@@ -19,6 +20,7 @@ module.exports = class Poll {
     this.cuisine_query = cuisine_query;
     this.price_range_index = price_range_index;
     this.number_of_results = number_of_results;
+    this.is_using_current_location = is_using_current_location;
 
     this.businessesMap = {};
   }
@@ -27,7 +29,8 @@ module.exports = class Poll {
     await getBusinesses(
       this.cuisine_query,
       this.location,
-      this.price_range_index
+      this.price_range_index,
+      this.is_using_current_location
     )
       .then(response => {
         // Filter top 5 businesses
@@ -42,9 +45,7 @@ module.exports = class Poll {
               address: business.location.display_address,
               url: business.url,
               image_url: business.image_url,
-              categories: business.categories
-                .map(({ title }) => title)
-                .join(", "),
+              categories: business.categories.map(({ title }) => title),
               votes: 0,
             };
           });

@@ -10,9 +10,11 @@ app.use(bodyParser.json());
 // Routers
 const pollRouter = require("./routes/pollRouter");
 const cuisineRouter = require("./routes/cuisineRouter");
+const reviewRouter = require("./routes/reviewRouter");
 
 app.use("/api/poll", pollRouter);
 app.use("/api/cuisine", cuisineRouter);
+app.use("/api/review", reviewRouter);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

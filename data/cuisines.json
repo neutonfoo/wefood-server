@@ -1,6 +1,13 @@
 [
-    {"cuisine": "Chinese Food", "cuisineQuery": "chinese food"},
-    {"cuisine": "Japanese Food", "cuisineQuery": "japanese food"}, 
-    {"cuisine": "Korean Food", "cuisineQuery": "korean food"},
-    {"cuisine": "Burgers", "cuisineQuery": "burgers"}
+    {"cuisine": "Boba", "cuisineQuery": "boba"},
+    {"cuisine": "Burgers", "cuisineQuery": "burgers"},
+    {"cuisine": "Desserts", "cuisineQuery": "dessert"},
+    {"cuisine": "Fast Food", "cuisineQuery": "fast food"},
+    {"cuisine": "Indian", "cuisineQuery": "indian food"},
+    {"cuisine": "French", "cuisineQuery": "french food"},
+    {"cuisine": "Italian", "cuisineQuery": "italian food"},
+    {"cuisine": "Pasta", "cuisineQuery": "pasta"},
+    {"cuisine": "Chinese", "cuisineQuery": "chinese food"},
+    {"cuisine": "Japanese", "cuisineQuery": "japanese food"}, 
+    {"cuisine": "Korean", "cuisineQuery": "korean food"}
 ]
