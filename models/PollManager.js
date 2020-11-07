@@ -21,10 +21,25 @@ class PollManager {
     return poll_id;
   }
 
-  async createNewPoll(term, location, numberOfResults = 5) {
+  async createNewPoll(
+    poll_prompt,
+    location,
+    cuisine,
+    cuisine_query,
+    price_range_index,
+    number_of_results
+  ) {
     const poll_id = this.generatePollId(1000, 9999);
 
-    this.polls[poll_id] = new Poll(poll_id, term, location, numberOfResults);
+    this.polls[poll_id] = new Poll(
+      poll_id,
+      poll_prompt,
+      location,
+      cuisine,
+      cuisine_query,
+      price_range_index,
+      number_of_results
+    );
     await this.polls[poll_id].populateBusinesses();
 
     return poll_id;

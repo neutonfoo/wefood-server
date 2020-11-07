@@ -10,11 +10,12 @@ const instance = axios.create({
   headers: { Authorization: `Bearer ${process.env.YELP_API}` },
 });
 
-module.exports.getBusinesses = async (term, location) => {
+module.exports.getBusinesses = async (term, location, price_range) => {
   return await instance.get("/businesses/search", {
     params: {
       term: term,
       location: location,
+      price: price_range,
     },
   });
 };

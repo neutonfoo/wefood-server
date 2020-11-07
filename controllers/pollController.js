@@ -1,15 +1,21 @@
 const PollManager = require("../models/PollManager");
 
 exports.create_poll = async function (req, res) {
-  const term = req.body.term;
+  const poll_prompt = req.body.poll_prompt;
   const location = req.body.location;
-  const numberOfResults = req.body.numberOfResults;
+  const cuisine = req.body.cuisine;
+  const cuisine_query = req.body.cuisine_query;
+  const price_range_index = req.body.price_range_index + 1;
+  const number_of_results = req.body.number_of_results;
 
   // Generate Poll and Poll ID
   const poll_id = await PollManager.createNewPoll(
-    term,
+    poll_prompt,
     location,
-    numberOfResults
+    cuisine,
+    cuisine_query,
+    price_range_index,
+    number_of_results
   );
   res.json({ poll_id: poll_id });
 };
