@@ -39,6 +39,7 @@ module.exports = class Poll {
             return {
               id: business.id,
               name: business.name,
+              address: business.location.display_address,
               url: business.url,
               image_url: business.image_url,
               categories: business.categories
