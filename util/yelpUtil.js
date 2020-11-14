@@ -18,6 +18,7 @@ module.exports.getBusinesses = async (term, location, price_range) => {
       term: term,
       location: location,
       price: price_range,
+      open_now: true,
     },
   });
 };
