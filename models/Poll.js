@@ -23,6 +23,14 @@ module.exports = class Poll {
     this.number_of_results = number_of_results;
     this.is_using_current_location = is_using_current_location;
 
+    if (this.is_using_current_location) {
+      this.lat = parseFloat(this.location.split(",")[0]);
+      this.lng = parseFloat(this.location.split(",")[1]);
+    } else {
+      this.lat = 0;
+      this.lng = 0;
+    }
+
     this.businesses = [];
     this.businessesMap = {};
   }
@@ -35,6 +43,12 @@ module.exports = class Poll {
       this.is_using_current_location
     )
       .then(response => {
+        // Set region
+        if (!this.is_using_current_location) {
+          this.lat = response.data.region.center.latitude;
+          this.lng = response.data.region.center.longitude;
+        }
+
         // Filter top 5 businesses
         this.businesses = response.data.businesses
           .slice(0, this.number_of_results)
