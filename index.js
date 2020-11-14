@@ -12,6 +12,10 @@ const pollRouter = require("./routes/pollRouter");
 const cuisineRouter = require("./routes/cuisineRouter");
 const reviewRouter = require("./routes/reviewRouter");
 
+app.use("/api/googleMapsAPIKey", (req, res) => {
+  return res.json({ apiKey: process.env.GOOGLE_MAPS_API_KEY });
+});
+
 app.use("/api/poll", pollRouter);
 app.use("/api/cuisine", cuisineRouter);
 app.use("/api/review", reviewRouter);
