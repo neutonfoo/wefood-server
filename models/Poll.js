@@ -2,7 +2,7 @@ const { getBusinesses } = require("../util/yelpUtil");
 
 module.exports = class Poll {
   constructor(
-    poll_id,
+    pollId,
     poll_prompt,
     location,
     cuisine,
@@ -11,8 +11,9 @@ module.exports = class Poll {
     number_of_results,
     is_using_current_location
   ) {
-    this.poll_id = poll_id;
-    this.date = new Date().toLocaleString();
+    this.pollId = pollId;
+    this.date = new Date().toLocaleDateString();
+    this.time = new Date().toLocaleTimeString();
 
     this.poll_prompt = poll_prompt;
     this.location = location;
@@ -22,6 +23,7 @@ module.exports = class Poll {
     this.number_of_results = number_of_results;
     this.is_using_current_location = is_using_current_location;
 
+    this.businesses = [];
     this.businessesMap = {};
   }
 
@@ -46,6 +48,8 @@ module.exports = class Poll {
               url: business.url,
               image_url: business.image_url,
               categories: business.categories.map(({ title }) => title),
+              lat: business.coordinates.latitude,
+              lng: business.coordinates.longitude,
               votes: 0,
             };
           });

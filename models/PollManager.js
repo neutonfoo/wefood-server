@@ -2,7 +2,7 @@ const Poll = require("./Poll");
 
 class PollManager {
   constructor() {
-    // Polls is a dictionary that maps poll_id => Poll
+    // Polls is a dictionary that maps pollId => Poll
     this.polls = {};
 
     this.minCode = 1000;
@@ -11,14 +11,14 @@ class PollManager {
 
   generatePollId() {
     // Generate random, unused code
-    let poll_id;
+    let pollId;
     do {
-      poll_id = Math.floor(
+      pollId = Math.floor(
         Math.random() * (this.maxCode - this.minCode) + this.minCode
       );
-    } while (poll_id in this.polls);
+    } while (pollId in this.polls);
 
-    return poll_id;
+    return pollId;
   }
 
   async createNewPoll(
@@ -30,10 +30,10 @@ class PollManager {
     number_of_results,
     is_using_current_location
   ) {
-    const poll_id = this.generatePollId(1000, 9999);
+    const pollId = this.generatePollId(1000, 9999);
 
-    this.polls[poll_id] = new Poll(
-      poll_id,
+    this.polls[pollId] = new Poll(
+      pollId,
       poll_prompt,
       location,
       cuisine,
@@ -42,22 +42,27 @@ class PollManager {
       number_of_results,
       is_using_current_location
     );
-    await this.polls[poll_id].populateBusinesses();
+    await this.polls[pollId].populateBusinesses();
 
-    return poll_id;
+    return pollId;
   }
 
-  getPoll(poll_id) {
-    if (poll_id in this.polls) {
-      return this.polls[poll_id];
+  getPoll(pollId) {
+    if (pollId in this.polls) {
+      return this.polls[pollId];
     }
 
     return { error: "Poll does not exist." };
   }
 
-  votePoll(poll_id, business_id) {
-    this.polls[poll_id].vote(business_id);
-    return { success: "Voted" };
+  votePoll(pollId, business_id) {
+    this.polls[pollId].vote(business_id);
+    return { success: "Voted on poll." };
+  }
+
+  deletePoll(pollId) {
+    delete this.polls[pollId];
+    return { success: "Delete poll." };
   }
 
   getPolls() {

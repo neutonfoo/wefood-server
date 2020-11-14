@@ -10,12 +10,15 @@ const poll_controller = require("../controllers/pollController");
 router.get("/", poll_controller.get_polls);
 
 // Get a Poll by Poll ID
-router.get("/:poll_id", poll_controller.get_poll);
+router.get("/:pollId", poll_controller.get_poll);
 
 // Get a Poll by Poll ID
-router.put("/:poll_id", poll_controller.vote_poll);
+router.put("/:pollId", poll_controller.vote_poll);
 
 // Create a new poll
 router.post("/", poll_controller.create_poll);
+
+// Delete a poll
+router.delete("/:pollId", poll_controller.delete_poll);
 
 module.exports = router;
