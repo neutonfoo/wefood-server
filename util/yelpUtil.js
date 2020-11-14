@@ -1,5 +1,3 @@
-if (process.env.NODE_ENV !== "production") require("dotenv").config();
-
 const axios = require("axios");
 
 const yelpBase = "https://api.yelp.com/v3";
